@@ -35,10 +35,11 @@ function IsDate(obj) {
         for4year = false;
     }
     console.log(for4year);
-
-
+    if (!reg.test(str) || (monthR<1)){
+        createWarning(obj);
+    }
     /*判断大小月*/
-    if(((",1,3,5,7,8,10,12,").indexOf(","+monthR+",") != -1) && dayR<=31){
+    else if(((",1,3,5,7,8,10,12,").indexOf(","+monthR+",") != -1) && dayR<=31){
         console.log(("1,3,5,7,8,10,12").indexOf(monthR))
         clearWarning(obj);
     }
@@ -50,9 +51,6 @@ function IsDate(obj) {
     }
     else if(for4year && dayR<30){
         clearWarning(obj);
-    }
-    else if (!reg.test(str) || (monthR<1)){
-        createWarning(obj);
     }
     else{
         createWarning(obj);
